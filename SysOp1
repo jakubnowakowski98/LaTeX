@@ -97,7 +97,27 @@ int main()
     return 0;
 }
 
-//zad5
+//zad3 - wyjscie(???)
+
+#include <stdio.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    //UWAGA WAZNY JEST ZNAK KONCA LINII
+    printf("Wyjscie 1\n");
+    int fd;
+    fd=open("Test", O_CREAT| O_WRONLY);
+    //close(1);
+    //dup(fd);
+    dup2(fd,1); //ta linijka zastepuje 2 powyzsze linijki
+    printf("Wyjscie 2\n");
+    return 0;
+}
 
 //ZEROWKA
 6 zadan, 5 rachunkowych bardziej pkt, 1 opisowe mniej pkt
@@ -108,9 +128,3 @@ zakleszczenie, algorytm kogostam
 porownac 2 algorytmy szeregowania procesu sjf i rotacyjny, ktory bardziej wydajny
 algorytmy typu LIFO lub MFU i podac ile bledow strony sie wyswietli majac konkretna ilosc pamieci
 algorytmy blizniacze
-
-
-
-
-
-
