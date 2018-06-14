@@ -28,8 +28,8 @@ close(fd);
 return 0;
 }
 
-//gcc -o nazwa plik.c -kompiluje plik.c pod nazwą nazwa
-//./ nazwa -wyswietla go na ekranie konsoli
+//gcc -o nazwa plik.c -kompiluje plik.c pod nazwą nazwa                 !!!!!!!!!!!!
+//./ nazwa -wyswietla go na ekranie konsoli                             !!!!!!!!!!!!
 
 //zad2a -otwiera plik
 #include <stdio.h>
@@ -101,10 +101,6 @@ int main()
 
 #include <stdio.h>
 #include <fcntl.h>
-#include <errno.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
 
 int main()
 {
@@ -118,6 +114,11 @@ int main()
     printf("Wyjscie 2\n");
     return 0;
 }
+
+//PRZYKLAD A http://mc.umcs.lublin.pl/node/20
+
+
+
 
 //ZEROWKA
 6 zadan, 5 rachunkowych bardziej pkt, 1 opisowe mniej pkt
