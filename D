@@ -13,9 +13,9 @@ int main(int argc, char* argv[])
     int desc;
     long rozm;
 
-    if(argc<2)
+    if(argc>2 || ARGC<1)
     {
-        fprintf(stderr,"za malo arg");
+        fprintf(stderr,"ERORR");
         exit(1);
     }
 
