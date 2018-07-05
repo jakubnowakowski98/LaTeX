@@ -1,0 +1,25 @@
+#include <iostream>
+
+using namespace std;
+
+template <int size, class dupa>
+dupa &funkcja(int size, dupa &tabl[size])
+{
+    dupa *a;
+    a=tabl[0];
+    dupa *b;
+    b=tabl[size-1];
+    if(a>b)
+        return a;
+    else
+        return b;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int tab[n];
+    cout<<funkcja<int>(n,tab[n])<<endl;
+    return 0;
+}
