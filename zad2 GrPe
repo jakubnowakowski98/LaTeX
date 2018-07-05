@@ -1,0 +1,114 @@
+//2.a
+#include <iostream>
+
+using namespace std;
+
+template <int size, class dupa>
+dupa &funkcja(dupa tabl[size])
+{
+    dupa naj=0;
+    dupa *a;
+    a=tabl[0];
+    dupa *b;
+    b=tabl[size-1];
+    int j=0;
+    for(int i=a; i<=b; i++)
+    {
+        if(tabl[i]>naj)
+        {
+            naj=tabl[i];
+            j=i;
+        }
+    }
+    return tabl[j];
+}
+
+int main()
+{
+    int tab[4];
+    cout<<funkcja<4,int>(tab)<<endl; //chcialem dac zmienna n, ale program mi wykrzaczal wiec jest stala
+    return 0;
+}
+
+//2b i 2c
+/*
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+template<class dupa>
+
+class MagicBox{
+    dupa a;
+public:
+    template<>void seta<string>(string n)
+    {
+        a=n;
+    }
+    void seta(dupa n)
+    {
+        a=n;
+    }
+
+    template<>void geta<string>()
+{
+    string b;
+    b=" Prepare to Die";
+    cout<<a+b<<endl;
+}
+
+    void geta()
+    {
+        cout<<a<<endl;
+    }
+};
+
+int main()
+{
+    MagicBox<int> m;
+    m.seta(3);
+    m.geta();
+    MagicBox<string> h;
+    h.seta("Imie");
+    h.geta();
+    return 0;
+}
+*/
+/*
+//2.d
+#include <iostream>
+
+using namespace std;
+
+template<class dupa, int size>
+
+class SuperMagicBox
+{
+    dupa *tab;
+public:
+    int rozmiar;
+    SuperMagicBox()
+    {
+        dupa *tab2=new dupa[size];
+        tab=tab2;
+        rozmiar=size-1;
+    }
+    ~SuperMagicBox(){};
+    dupa &operator[](dupa &tab)
+    {
+        unsigned int k;
+        cin>>k;
+        if(k<rozmiar)
+        return tab[k];
+        else
+            cout<<"za duza liczba"<<endl;
+    }
+};
+
+int main()
+{
+    SuperMagicBox<int,4> s();
+    return 0;
+}
+*/
