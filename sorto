@@ -1,0 +1,64 @@
+//2a
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+class Sortowanie{
+vector<int> g;
+public:
+    Sortowanie()
+    {
+    g.push_back(3);
+	g.push_back(10);
+	g.push_back(5);
+	g.push_back(100);
+	g.push_back(0);
+    }
+    bool funkcja2(int a, int b)
+    {
+        return a>b;
+    }
+};
+
+bool funkcja(int a, int b)
+{
+    return a>b;
+}
+/*
+void funkcja(vector<int> h,int *tabl)
+{
+    for (int i = 0; i < h.size(); i++)
+	{
+
+		if(h[i]>h[i+1])
+            tabl[i]=h[i+1];
+        else
+            tabl[i]=h[i];
+
+	}
+}
+*/
+int main()
+{
+    vector<int> v;
+
+	v.push_back(3);
+	v.push_back(10);
+	v.push_back(5);
+	v.push_back(100);
+	v.push_back(0);
+	vector<int> p;
+    int rozmiar;
+    rozmiar=v.size();
+    int *tab=new int[rozmiar];
+	//lambda
+    sort(v.begin(), v.end(), [](int a, int b)->bool {return a > b; });
+    //funkcja;
+    sort(v.begin(), v.end(), funkcja);
+    //funktor
+    Sortowanie o1=Sortowanie();
+    sort(v.begin(), v.end(), o1.funkcja2);
+    return 0;
+}
