@@ -1,0 +1,126 @@
+#include <iostream>
+//#include <list>
+//#include <map>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+/*
+int main()
+{
+    list<int> a;
+    a.push_back(3);
+    a.push_back(6);
+    a.push_back(9);
+    list<int>::iterator it;
+    for(it=a.begin(); it!=a.end(); it++)
+    {
+        cout<<*it<<endl;
+    }
+
+    cout<<endl;
+
+    map<string, int> b;
+    b["napis"]=1;
+    b["dupa"]=3;
+    b["adgf"]=5;
+    map<string, int>::iterator it2;
+    for(it2=b.begin(); it2!=b.end(); it2++)
+    {
+        cout<<it2->first<<" "<<it2->second<<endl;
+    }
+
+    return 0;
+}*/
+
+class Dupa{
+public:
+    int a=7;
+    bool operator()(int b, int c)
+    {
+        if(a>=0 && a<=9)
+    {
+             int counterB=0;
+             int counterC=0;
+             while(b>0)
+             {
+                 if(b%10==a)
+                 {
+                     counterB++;
+                 }
+                b=b/10;
+             }
+             while(c>0)
+             {
+                 if(c%10==a)
+                 {
+                     counterC++;
+                 }
+                c=c/10;
+             }
+             return counterB<counterC;
+    }
+    else
+    {
+        throw a;
+    }
+
+};
+
+void funkcja(vector<int>::iterator it1, vector<int>::iterator it2, int a)
+{
+    if(a>=0 && a<=9)
+    {
+
+        sort(it1, it2, [a](int b, int c)->bool {
+             int counterB=0;
+             int counterC=0;
+             while(b>0)
+             {
+                 if(b%10==a)
+                 {
+                     counterB++;
+                 }
+                b=b/10;
+             }
+             while(c>0)
+             {
+                 if(c%10==a)
+                 {
+                     counterC++;
+                 }
+                c=c/10;
+             }
+             return counterB<counterC;});
+    }
+    else
+    {
+        throw a;
+    }
+}
+
+void funkcja2(vector<int>::iterator it1, vector<int>::iterator it2, int a)
+{
+    sort(it1, it2, d);
+}
+
+int main()
+{
+    vector<int> v;
+    v.push_back(2);
+    v.push_back(4);
+    v.push_back(3);
+    v.push_back(1);
+    try
+    {
+        funkcja(v.begin(), v.end(), 7);
+    }
+    catch(int wyjatek)
+    {
+        cout<<wyjatek<<endl;
+    }
+    Dupa d;
+    funkcja2(v.begin(), v.end(), d);
+    return 0;
+}
+
