@@ -3,7 +3,7 @@
 using namespace std;
 
 template <int size, class dupa>
-dupa &funkcja(int size, dupa &tabl[size])
+dupa &funkcja(dupa tabl[size])
 {
     dupa *a;
     a=tabl[0];
@@ -19,7 +19,9 @@ int main()
 {
     int n;
     cin>>n;
+    if(n<2)
+        cout<<"za mala liczba"<<endl;
     int tab[n];
-    cout<<funkcja<int>(n,tab[n])<<endl;
+    cout<<funkcja<n,int>(tab)<<endl;
     return 0;
 }
