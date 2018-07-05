@@ -1,0 +1,41 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+template<class dupa>
+template<>void seta<string>(string n)
+    {
+        a=n;
+    }
+template<>void geta<string>()
+{
+    string b;
+    b=" Prepare to Die";
+    cout<<a+b<<endl;
+}
+
+
+class MagicBox{
+    dupa a;
+public:
+    void seta(dupa n)
+    {
+        a=n;
+    }
+    void geta()
+    {
+        cout<<a<<endl;
+    }
+};
+
+int main()
+{
+    MagicBox<int> m;
+    m.seta(3);
+    m.geta();
+    MagicBox<string> n;
+    n.seta("Imie");
+    n.geta();
+    return 0;
+}
