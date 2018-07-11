@@ -1,0 +1,114 @@
+//1
+/*
+#include <iostream>
+
+using namespace std;
+
+class Dupa
+{
+    float a,b;
+public:
+    Dupa(float x=2.5, float y=0.5)
+    {
+        a=x;
+        b=y;
+    }
+    void setab(float x, float y)
+    {
+        a=x;
+        b=y;
+    }
+
+    float getab()
+    {
+        cout<<a<<" "<<b<<endl;
+        return a+b;
+    }
+
+};
+
+int main()
+{
+    Dupa d=Dupa(4.4, 6.6);
+    d.setab(4.4,7.7);
+    d.getab();
+    return 0;
+}
+*/
+
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+//2
+class Zwierze
+{
+    string voice;
+public:
+    Zwierze(string vo)
+    {
+        voice=vo;
+    }
+    virtual string dajGlos()
+    {
+        cout<<voice<<endl;
+        return voice;
+    }
+};
+
+//3
+class Kot : public Zwierze
+{
+public:
+    Kot(string vo)
+    :Zwierze(vo="Miau"){}
+};
+
+//4
+class Pies :public Zwierze
+{
+public:
+    Pies(string vo)
+    :Zwierze(vo="Hauu"){}
+};
+
+//5
+class Aligator :public Zwierze
+{
+    string voice2;
+    public:
+    Aligator();
+    Aligator(string vo, string vo2=" wrrrrr")
+    :Zwierze(vo="grrrrr")
+    {
+        voice2=vo2;
+    }
+    virtual string dajGlos2(){
+    cout<<Zwierze::dajGlos()+voice2<<endl;
+    return Zwierze::dajGlos()+voice2;
+    }
+
+};
+
+int main()
+{
+    Zwierze z=Zwierze("hau hau");
+    Kot k=Kot("cos"); //i tak wyswietli "miau" ale bez argumentu mi nie kompilowalo
+    Pies p=Pies("cokolwiek");
+    Aligator a=Aligator("cokolwiek xD");
+    string tab[3]; //probowalem kombinowaz z tablica intow(bo adres) i dodawac do niej *z *k itd ale sie wykrzaczalo
+    tab[0]=k.dajGlos();
+    tab[1]=p.dajGlos();
+    tab[2]=a.dajGlos2();
+    //z.dajGlos();
+    //k.dajGlos();
+    //p.dajGlos();
+    //a.dajGlos2();
+    for(int i=0; i<3; i++)
+    {
+        cout<<&tab[i]<<endl; //z '*' nie dzialalo, a tak pokazuje ares, czemu???
+    }
+    return 0;
+}
