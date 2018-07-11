@@ -1,0 +1,119 @@
+//zad1
+#include <iostream>
+
+using namespace std;
+
+class Licznik
+{
+private:
+    int b;
+    static int a;
+public:
+    Licznik(int c=9)
+    {
+        b=c;
+    }
+    ~Licznik(){}
+    static void StaticConstructor(int b)
+    {
+        a=b++;
+        cout<<a<<endl;
+    }
+    static void StaticDestructor(int b)
+    {
+        a=b--;
+        cout<<a<<endl;
+    }
+};
+
+int main()
+{
+    Licznik l;
+    l.StaticConstructor(9);
+    l.StaticDestructor(9);
+    return 0;
+}
+
+/*
+//zad2
+#include <iostream>
+
+using namespace std;
+
+class Pojazd
+{
+protected:
+    float max_speed;
+    unsigned int color;
+public:
+        Pojazd(float m=222.2, unsigned int c=1441)
+        {
+            max_speed=m;
+            color=c;
+        }
+
+        virtual float czas()
+        {
+            float d;
+            cout<<"..."<<endl;
+            cin>>d;
+            return d*max_speed;
+
+        }
+};
+
+class Car :public Pojazd{
+int ile;
+public:
+        Car(float m=222.2, unsigned int c=1441, int ile2=200)
+        :Pojazd(m, c)
+        {
+            ile=ile2;
+        }
+    virtual float czas()
+        {
+            //cout<<Pojazd::czas()+(10*ile)<<endl;
+            return Pojazd::czas()+(10*ile);
+
+        }
+
+};
+
+class Plane: public Pojazd
+{
+int czas_postoju;
+public:
+    Plane(float m=80.5, unsigned int c=1441, int cz=30)
+    :Pojazd(m,c)
+    {
+        czas_postoju=cz;
+    }
+    virtual float czas()
+        {
+            float czass;
+            float d;
+            cout<<"Podaj droge: "<<endl;
+            czass=d/1000;
+            if(czass>=1)
+            {
+            return czas_postoju+Pojazd::czas()+int(czass)*czas_postoju; //nawet jak warunek sie zgadza to wykonuje jakby sie nie zgadzal
+            }
+            else
+            {
+            return czas_postoju+Pojazd::czas();
+            }
+        }
+};
+
+int main()
+{
+    Pojazd* tab[2];
+    tab[0]=new Car;
+    tab[1]=new Plane;
+    for(int i=0; i<2; i++)
+    {
+        cout<<tab[i]->czas()<<endl;
+    }
+    return 0;
+}
+*/
