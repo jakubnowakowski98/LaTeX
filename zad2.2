@@ -1,0 +1,277 @@
+#include <iostream>
+
+using namespace std;
+
+void BubbleSort (auto tabb[] , unsigned int nb, auto tabb2[], auto tabb3[])
+{
+    for(unsigned int i=nb-1; i>0; i--)
+    for(unsigned int j=0; j<i; j++)
+    if (tabb[j]>tabb[j+1])
+    {
+    swap (tabb[j], tabb[j+1]);
+    swap (tabb2[j], tabb2[j+1]);
+    swap (tabb3[j], tabb3[j+1]);
+    }
+}
+void BubbleSort2 (auto tabb[] , unsigned int nb, auto tabb2[] )
+{
+    for(unsigned int i=nb-1; i>0; i--)
+    for(unsigned int j=0; j<i; j++)
+    if (tabb[j]>tabb[j+1])
+    {
+    swap (tabb[j], tabb[j+1]);
+    swap (tabb2[j], tabb2[j+1]);
+    }
+}
+void BubbleSort3 (auto tabb[] , unsigned int nb )
+{
+    for(unsigned int i=nb-1; i>0; i--)
+    for(unsigned int j=0; j<i; j++)
+    if (tabb[j]>tabb[j+1])
+    swap (tabb[j], tabb[j+1]);
+}
+
+int main()
+{
+    std::ios::sync_with_stdio(false);
+    unsigned int n;
+    cin>>n;
+    string napis, napis2;
+    string kolejnosc;
+    string tabSC[n];
+    string tabSD[n];
+    int tabIC[n];
+    int tabID[n];
+    int tabI2C[n];
+    int tabI2D[n];
+    double tabDC[n];
+    double tabDD[n];
+    double s, s2;
+    int d, d2, m, m2;
+    cin.ignore(100,'\n');
+    getline(cin, kolejnosc);
+    cin.ignore(100,'\n');
+    for(int i=0; i<n; i++)
+    {
+        getline(cin, napis);
+        tabSC[i]=napis;
+        cin>>s;
+        tabDC[i]=s;
+        cin>>d;
+        cin>>m;
+        tabIC[i]=d;
+        tabI2C[i]=m;
+        getline(cin, napis2);
+        tabSD[i]=napis2;
+        cin>>s2;
+        tabDD[i]=s2;
+        cin>>d2;
+        cin>>m2;
+        tabID[i]=d2;
+        tabI2D[i]=m2;
+    }
+    if(kolejnosc=="s d m")
+    {
+        BubbleSort(tabDC, n, tabIC, tabI2C);
+        for(int i=n-1; i>0; i--)
+            {
+                if(tabDC[i]==tabDC[i-1] && i-1>=0)
+                {
+                    BubbleSort2(tabIC, n, tabI2C);
+                    for(int j=n-1; j>0; j--)
+                    {
+                        if(tabIC[j]==tabIC[j-1] && j-1>=0)
+                        {
+                            BubbleSort3(tabI2C, n);
+                        }
+                    }
+                }
+            }
+        BubbleSort(tabDD, n, tabID, tabI2D);
+        for(int i=n-1; i>0; i--)
+            {
+                if(tabDC[i]==tabDC[i-1] && i-1>=0)
+                {
+                    BubbleSort2(tabIC, n, tabI2D);
+                    for(int j=n-1; j>0; j--)
+                    {
+                        if(tabIC[j]==tabIC[j-1] && j-1>=0)
+                        {
+                            BubbleSort3(tabI2C, n);
+                        }
+                    }
+                }
+            }
+    }
+    if(kolejnosc=="s m d")
+    {
+        BubbleSort(tabDC, n, tabIC, tabI2C);
+            for(int i=n-1; i>0; i--)
+            {
+                if(tabDC[i]==tabDC[i-1] && i-1>=0)
+                {
+                    BubbleSort2(tabI2C, n, tabI2C);
+                    for(int j=n-1; j>0; j--)
+                    {
+                        if(tabI2C[j]==tabI2C[j-1] && j-1>=0)
+                        {
+                            BubbleSort3(tabIC, n);
+                        }
+                    }
+                }
+            }
+        BubbleSort(tabDD, n, tabID, tabI2D);
+        for(int i=n-1; i>0; i--)
+            {
+                if(tabDD[i]==tabDD[i-1] && i-1>=0)
+                {
+                    BubbleSort2(tabI2D, n, tabID);
+                    for(int j=n-1; j>0; j--)
+                    {
+                        if(tabI2D[j]==tabI2D[j-1] && j-1>=0)
+                        {
+                            BubbleSort3(tabID, n);
+                        }
+                    }
+                }
+            }
+    }
+    if(kolejnosc=="d s m")
+    {
+        BubbleSort(tabIC, n, tabDC, tabI2C);
+        for(int i=n-1; i>0; i--)
+            {
+                if(tabIC[i]==tabIC[i-1] && i-1>=0)
+                {
+                    BubbleSort2(tabDC, n, tabI2C);
+                    for(int j=n-1; j>0; j--)
+                    {
+                        if(tabDC[j]==tabDC[j-1] && j-1>=0)
+                        {
+                            BubbleSort3(tabI2C, n);
+                        }
+                    }
+                }
+            }
+        BubbleSort(tabID, n, tabDD, tabI2D);
+        for(int i=n-1; i>0; i--)
+            {
+                if(tabID[i]==tabID[i-1] && i-1>=0)
+                {
+                    BubbleSort2(tabDD, n, tabI2D);
+                    for(int j=n-1; j>0; j--)
+                    {
+                        if(tabDD[j]==tabDD[j-1] && j-1>=0)
+                        {
+                            BubbleSort3(tabI2D, n);
+                        }
+                    }
+                }
+            }
+    }
+    if(kolejnosc=="d m s")
+    {
+        BubbleSort(tabIC, n, tabDC, tabI2C);
+        for(int i=n-1; i>0; i--)
+            {
+                if(tabIC[i]==tabIC[i-1] && i-1>=0)
+                {
+                    BubbleSort2(tabI2C, n, tabDC);
+                    for(int j=n-1; j>0; j--)
+                    {
+                        if(tabI2C[j]==tabI2C[j-1] && j-1>=0)
+                        {
+                            BubbleSort3(tabDC, n);
+                        }
+                    }
+                }
+            }
+        BubbleSort(tabID, n, tabDD, tabI2D);
+        for(int i=n-1; i>0; i--)
+            {
+                if(tabID[i]==tabID[i-1] && i-1>=0)
+                {
+                    BubbleSort2(tabI2D, n, tabDD);
+                    for(int j=n-1; j>0; j--)
+                    {
+                        if(tabI2D[j]==tabI2D[j-1] && j-1>=0)
+                        {
+                            BubbleSort3(tabDD, n);
+                        }
+                    }
+                }
+            }
+    }
+    if(kolejnosc=="m s d")
+    {
+        BubbleSort(tabI2C, n, tabIC, tabDC);
+        for(int i=n-1; i>0; i--)
+            {
+                if(tabI2C[i]==tabI2C[i-1] && i-1>=0)
+                {
+                    BubbleSort2(tabIC, n, tabDC);
+                    for(int j=n-1; j>0; j--)
+                    {
+                        if(tabIC[j]==tabIC[j-1] && j-1>=0)
+                        {
+                            BubbleSort3(tabDC, n);
+                        }
+                    }
+                }
+            }
+        BubbleSort(tabI2D, n, tabID, tabDD);
+        for(int i=n-1; i>0; i--)
+            {
+                if(tabI2D[i]==tabI2D[i-1] && i-1>=0)
+                {
+                    BubbleSort2(tabID, n, tabDD);
+                    for(int j=n-1; j>0; j--)
+                    {
+                        if(tabID[j]==tabID[j-1] && j-1>=0)
+                        {
+                            BubbleSort3(tabDD, n);
+                        }
+                    }
+                }
+            }
+    }
+    if(kolejnosc=="m d s")
+    {
+        BubbleSort(tabI2C, n, tabIC, tabDC);
+        for(int i=n-1; i>0; i--)
+            {
+                if(tabI2C[i]==tabI2C[i-1] && i-1>=0)
+                {
+                    BubbleSort2(tabDC, n, tabIC);
+                    for(int j=n-1; j>0; j--)
+                    {
+                        if(tabDC[j]==tabDC[j-1] && j-1>=0)
+                        {
+                            BubbleSort3(tabIC, n);
+                        }
+                    }
+                }
+            }
+        BubbleSort(tabI2D, n, tabID, tabDD);
+        for(int i=n-1; i>0; i--)
+            {
+                if(tabI2D[i]==tabI2D[i-1] && i-1>=0)
+                {
+                    BubbleSort2(tabDD, n, tabID);
+                    for(int j=n-1; j>0; j--)
+                    {
+                        if(tabDD[j]==tabDD[j-1] && j-1>=0)
+                        {
+                            BubbleSort3(tabID, n);
+                        }
+                    }
+                }
+            }
+    }
+    for(int i=0; i<n; i++)
+    {
+        cout<<tabSC[i];
+        cout<<tabSD[i];
+    }
+    return 0;
+}
