@@ -93,6 +93,10 @@ int main()
                         }
                     }
                 }
+                else if(tabIC[i]==tabIC[i-1] && i-1>=0)
+                {
+                    BubbleSort3(tabI2C, i, tabSC, tabDC, tabIC);
+                }
             }
         BubbleSort(tabDD, n, tabID, tabI2D, tabSD);
         for(int i=n-1; i>0; i--)
@@ -107,6 +111,10 @@ int main()
                             BubbleSort3(tabI2D, j, tabSD, tabDD, tabID);
                         }
                     }
+                }
+                else if(tabIC[i]==tabIC[i-1] && i-1>=0)
+                {
+                    BubbleSort3(tabI2D, i, tabSD, tabDD, tabID);
                 }
             }
     }
@@ -126,6 +134,10 @@ int main()
                         }
                     }
                 }
+                else if(tabI2C[i]==tabI2C[i-1] && i-1>=0)
+                {
+                    BubbleSort3(tabIC, i, tabSC, tabDC, tabI2C);
+                }
             }
         BubbleSort(tabDD, n, tabID, tabI2D, tabSD);
         for(int i=n-1; i>0; i--)
@@ -140,6 +152,10 @@ int main()
                             BubbleSort3(tabID, j, tabSD, tabDD, tabI2D);
                         }
                     }
+                }
+                else if(tabI2D[i]==tabI2D[i-1] && i-1>=0)
+                {
+                    BubbleSort3(tabID, i, tabSD, tabDD, tabI2D);
                 }
             }
     }
@@ -159,6 +175,10 @@ int main()
                         }
                     }
                 }
+                else if(tabDC[i]==tabDC[i-1] && i-1>=0)
+                    {
+                            BubbleSort3(tabI2C, i, tabSC, tabIC, tabDC);
+                    }
             }
         BubbleSort(tabID, n, tabDD, tabI2D, tabSD);
         for(int i=n-1; i>0; i--)
@@ -173,6 +193,10 @@ int main()
                             BubbleSort3(tabI2D, j, tabSD, tabID, tabDD);
                         }
                     }
+                }
+                else if(tabDD[i]==tabDD[i-1] && i-1>=0)
+                {
+                    BubbleSort3(tabI2D, i, tabSD, tabID, tabDD);
                 }
             }
     }
@@ -192,6 +216,10 @@ int main()
                         }
                     }
                 }
+                else if(tabI2C[i]==tabI2C[i-1] && i-1>=0)
+                {
+                    BubbleSort3(tabDC, i, tabSC, tabIC, tabI2C);
+                }
             }
         BubbleSort(tabID, n, tabDD, tabI2D, tabSD);
         for(int i=n-1; i>0; i--)
@@ -207,6 +235,10 @@ int main()
                         }
                     }
                 }
+                else if(tabI2D[i]==tabI2D[i-1] && i-1>=0)
+                    {
+                            BubbleSort3(tabDD, i, tabSD, tabID, tabI2D);
+                    }
             }
     }
     if(kolejnosc=="m s d")
@@ -224,7 +256,12 @@ int main()
                             BubbleSort3(tabDC, j, tabSC, tabI2C, tabIC);
                         }
                     }
+
                 }
+                else if(tabIC[i]==tabIC[i-1] && i-1>=0)
+                        {
+                            BubbleSort3(tabDC, i, tabSC, tabI2C, tabIC);
+                        }
             }
         BubbleSort(tabI2D, n, tabID, tabDD, tabSD);
         for(int i=n-1; i>0; i--)
@@ -239,6 +276,10 @@ int main()
                             BubbleSort3(tabDD, j, tabSD, tabI2D, tabID);
                         }
                     }
+                }
+                else if(tabID[i]==tabID[i-1] && i-1>=0)
+                {
+                    BubbleSort3(tabDD, i, tabSD, tabI2D, tabID);
                 }
             }
     }
@@ -258,6 +299,10 @@ int main()
                         }
                     }
                 }
+                else if(tabDC[i]==tabDC[i-1] && i-1>=0)
+                {
+                    BubbleSort3(tabIC, i, tabSC, tabI2C, tabDC);
+                }
             }
         BubbleSort(tabI2D, n, tabID, tabDD, tabSD);
         for(int i=n-1; i>0; i--)
@@ -272,6 +317,10 @@ int main()
                             BubbleSort3(tabID, j, tabSD, tabI2D, tabDD);
                         }
                     }
+                }
+                else if(tabDD[i]==tabDD[i-1] && i-1>=0)
+                {
+                    BubbleSort3(tabID, i, tabSD, tabI2D, tabDD);
                 }
             }
     }
